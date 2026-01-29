@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DatabaseConduit {
+
     private final UserRepository userRepository;
 
     public DatabaseConduit(UserRepository userRepository) {
@@ -16,4 +17,8 @@ public class DatabaseConduit {
         userRepository.save(userRecord);
     }
 
+    // ✅ FIXED METHOD
+    public UserRecord findUser(long userId) {
+        return userRepository.findById(userId);
+    }
 }
